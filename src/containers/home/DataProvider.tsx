@@ -1,26 +1,4 @@
 import React, { createContext, useContext, useState } from "react";
-import { useFormikContext } from 'formik';
-// const initialValues = {
-//   requisitionDetails: {
-//     gender: "",
-//     noOfOpenings: 0,
-//     requisitionTitle: "",
-//     urgency: "",
-//   },
-//   jobDetails: {
-//     jobDetails: "",
-//     jobLocation: "",
-//     jobTitle: "",
-//   },
-//   interviewSettings: {
-//     interviewDuration: "",
-//     interviewLanguage: "",
-//     interviewMode: "",
-//   },
-// };
-
-
-
 const initialValues = {
  
     gender: "",
