@@ -58,7 +58,6 @@ const HomeLayout = () => {
                 <InterviewSettingsForm handleTab={handlePage} />
               </TabPanel>
             </TabPanels>
-            {/* Display Card  */}
             <DisplayCard /> 
           </Grid>
         </Tabs>

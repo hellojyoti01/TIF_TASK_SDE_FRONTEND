@@ -7,9 +7,6 @@ import * as Yup from "yup";
 import { PageNumbers } from "../../interface/home";
 import { IRequisitionDetails } from "../../interface/forms";
 import { genderOptions, urgencyOptions } from "./constants";
-import {useRef} from 'react'
-import { useData } from "./DataProvider";
-
 const RequisitionDetailsForm: React.FC<{
   handleTab: (n: PageNumbers) => void;
 }> = ({ handleTab }) => {
@@ -42,12 +39,11 @@ const RequisitionDetailsForm: React.FC<{
       gender: Yup.string().required("Gender is required"),
     }),
     onSubmit: (values) => {
-      console.log(values , "On Submit Change ")
+     // console.log(values , "On Submit Change ")
       handleTab(1);
     },
   });
 
-   const ref = useRef(null)
 
 
   return (
@@ -62,7 +58,6 @@ const RequisitionDetailsForm: React.FC<{
           value={values?.requisitionTitle}
           error={errors?.requisitionTitle}
           touched={touched?.requisitionTitle}
-          ref={ref}
         />
         <FormInput
           label="Number of openings"
@@ -73,7 +68,6 @@ const RequisitionDetailsForm: React.FC<{
           value={values?.noOfOpenings}
           error={errors?.noOfOpenings}
           touched={touched?.noOfOpenings}
-          ref={ref}
         />
         <FormSelect
           label="Gender"
@@ -85,7 +79,6 @@ const RequisitionDetailsForm: React.FC<{
           error={errors.gender}
           touched={touched.gender}
           value={values.gender}
-          // ref={ref}
         />
         <FormSelect
           label="Urgency"
@@ -97,7 +90,6 @@ const RequisitionDetailsForm: React.FC<{
           error={errors.urgency}
           touched={touched.urgency}
           value={values.urgency}
-          // ref={ref}
         />
         <Flex w="100%" justify="flex-end" mt="4rem">
           <Button colorScheme="red" type="submit">

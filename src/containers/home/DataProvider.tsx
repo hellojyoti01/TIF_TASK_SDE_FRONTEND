@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState , useEffect } from "react";
 const initialValues = {
  
     gender: "",
@@ -18,8 +18,6 @@ export const DataContext = createContext<{
   setState: React.Dispatch<React.SetStateAction<any>>;
 } | null>(null);
 
-
-//typeof initialValues
 const DataProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {

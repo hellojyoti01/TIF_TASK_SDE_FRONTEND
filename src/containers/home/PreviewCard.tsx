@@ -5,13 +5,6 @@ import {
   IJobDetails,
   IRequisitionDetails,
 } from "../../interface/forms";
-import {
-  genderOptions,
-  interviewDurationOptions,
-  interviewLanguageOptions,
-  interviewModeOptions,
-  urgencyOptions,
-} from "./constants";
 import {useData} from './DataProvider'
 
 const DataCard: React.FC<{ title: string; children: React.ReactNode }> = ({
@@ -54,11 +47,7 @@ const PreviewCard: React.FC<{
   interviewSettings?: IInterViewSettings;
 }> = ({ requisitionDetails, jobDetails, interviewSettings }) => {
 
-  //Mywork
   const contextData = useData()
-
-
-  //!
   return (
     <Box p="1rem">
       <Box borderRadius="10px" bgColor="gray.100" height="fit-content">
@@ -89,7 +78,6 @@ const PreviewCard: React.FC<{
               alignItems="center"
             >
               <Text fontSize="0.9rem" fontWeight="500">
-                {/* {requisitionDetails?.requisitionTitle}  */}
                  {contextData?.state?.requisitionTitle}  
               </Text>
               <Flex justifyContent="space-around" alignItems="center">
@@ -97,7 +85,6 @@ const PreviewCard: React.FC<{
                   OPENINGS
                 </Text>
                 <Text fontSize="1rem" fontWeight="bold" as="span">
-                  {/* {requisitionDetails?.noOfOpenings} */}
                   {contextData?.state?.noOfOpenings}
                 </Text>
               </Flex>
@@ -108,60 +95,29 @@ const PreviewCard: React.FC<{
           <DataCard title="Requisition Details">
             <KeyValue
               title="Urgency"
-              // value={
-              //   urgencyOptions.find(
-              //     (item) => item?.value === requisitionDetails?.urgency
-              //   )?.label
-             // }
-              //!myWork
               value={contextData?.state?.urgency}
             />
             <KeyValue
               title="Gender"
-              // value={
-              //   genderOptions.find(
-              //     (item) => item?.value === requisitionDetails?.gender
-              //   )?.label
-              // }
-              //!myWork 
               value={contextData?.state.gender}
             />
           </DataCard>
           <DataCard title="Job Detail">
-            {/* //?My Work */}
             <KeyValue title="Job Title" value={contextData?.state?.jobTitle} />
             <KeyValue title="Job Details" value={contextData?.state?.jobDetails} />
             <KeyValue title="Job Location" value={contextData?.state?.jobLocation} />
-            {/* <KeyValue title="Job Title" value={contextData?.state?.jobTitle} />
-            <KeyValue title="Job Details" value={jobDetails?.jobDetails} />
-            <KeyValue title="Job Location" value={jobDetails?.jobLocation} /> */}
           </DataCard>
           <DataCard title="Interview Settings">
             <KeyValue
               title="Interview Duration"
-              // value={
-              //   interviewDurationOptions.find(
-              //     (item) => item?.value === interviewSettings?.interviewDuration
-              //   )?.label
-              //}
               value={contextData?.state?.interviewDuration}
             />
             <KeyValue
               title="Interview Language"
-              // value={
-              //   interviewLanguageOptions.find(
-              //     (item) => item?.value === interviewSettings?.interviewLanguage
-              //   )?.label
-              // }
               value={contextData?.state?.interviewLanguage}
             />
             <KeyValue
               title="Interview Mode"
-              // value={
-              //   interviewModeOptions.find(
-              //     (item) => item?.value === interviewSettings?.interviewMode
-              //   )?.label
-              // }
               value={contextData?.state?.interviewMode}
             />
           </DataCard>
@@ -172,8 +128,3 @@ const PreviewCard: React.FC<{
 };
 
 export default PreviewCard;
-
-
-// requisitionDetails?: IRequisitionDetails;
-// jobDetails?: IJobDetails;
-// interviewSettings?: IInterViewSettings;
