@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState , useEffect } from "react";
+import React, { createContext, useContext, useState} from "react";
 const initialValues = {
  
     gender: "",
@@ -21,8 +21,7 @@ export const DataContext = createContext<{
 const DataProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [state, setState] = useState(initialValues);
-
+  const [state, setState] = useState(initialValues)
   return (
     <DataContext.Provider value={{ state, setState }}>
       {children}

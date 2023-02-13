@@ -3,8 +3,7 @@ import { useTheme } from "@chakra-ui/react";
 import FromWrapper from "./FormWrapper";
 import { IFormInputProps } from "@src/interface/forms";
 import ReactSelect, { Props } from "react-select";
-//!My Work
-import {useData} from '../../containers/home/DataProvider' 
+import { useData } from '../../containers/home/DataProvider' 
 
 interface IFormSelectProps
   extends Omit<IFormInputProps, "inputProps" | "type" | "onChange" | "onBlur"> {
@@ -32,16 +31,11 @@ const FormSelect: React.FC<IFormSelectProps> = ({
   options,
 }) => {
   const theme = useTheme();
-  //! myWork 
+  
   const contextData = useData()
-  //  console.log(contextData)
-  //  console.log(options, "Option")
-  // console.log(value,'OUT SIDE OF EVENT')
   const handleChange = (e: any) => {
     onChange && onChange(name, e?.value);
-    //! myWork
-    // onChange?.(name, value?.value);
-    console.log(e , "Recent Change")
+
     if (e?.label) {
       contextData?.setState((prevState: typeof contextData.state) => ({
         ...prevState,
@@ -49,7 +43,7 @@ const FormSelect: React.FC<IFormSelectProps> = ({
       }))
     }
     
-    // console.log(value, "INSIDE OF EVENT")
+  
   };
   const handleBlur = () => {
     onBlur && onBlur(name, true);

@@ -27,15 +27,13 @@ const KeyValue: React.FC<{
   title: string;
   value?: string;
 }> = ({ title, value }) => {
-
-  console.log(title,value)
   return (
     <Box w="100%">
       <Text fontSize=".875rem" color="gray" mb="8px">
-        {title}
+        {{ title } ?  title  : ""}
       </Text>
       <Text fontSize=".875rem" mb="8px">
-        {value || "-"}
+        {value? value : "-"}
       </Text>
     </Box>
   );
@@ -45,7 +43,7 @@ const PreviewCard: React.FC<{
   requisitionDetails?: IRequisitionDetails;
   jobDetails?: IJobDetails;
   interviewSettings?: IInterViewSettings;
-}> = ({ requisitionDetails, jobDetails, interviewSettings }) => {
+}> = () => {
 
   const contextData = useData()
   return (
@@ -93,17 +91,16 @@ const PreviewCard: React.FC<{
         </Box>
         <Box maxH="50rem" overflowY="auto" px="24px" pb="24px">
           <DataCard title="Requisition Details">
-            <KeyValue
+           <KeyValue
               title="Urgency"
               value={contextData?.state?.urgency}
             />
-            <KeyValue
+         <KeyValue
               title="Gender"
-              value={contextData?.state.gender}
+              value={contextData?.state?.gender}
             />
           </DataCard>
           <DataCard title="Job Detail">
-            <KeyValue title="Job Title" value={contextData?.state?.jobTitle} />
             <KeyValue title="Job Details" value={contextData?.state?.jobDetails} />
             <KeyValue title="Job Location" value={contextData?.state?.jobLocation} />
           </DataCard>
@@ -127,4 +124,4 @@ const PreviewCard: React.FC<{
   );
 };
 
-export default PreviewCard;
+export default React.memo(PreviewCard);
